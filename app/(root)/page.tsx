@@ -21,7 +21,10 @@ const Dashboard= () => {
 
    />
   </header>
+
+  RECENT TRANSACTIONS
 </div>
+
     </section>
   )
 }
