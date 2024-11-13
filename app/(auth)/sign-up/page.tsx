@@ -1,10 +1,14 @@
-import AuthForm from '@/components/AuthForm'
+// Author: [Omegea Hunter]
 
-const SignUp = async () => {
+// Date: 2022-11-10
+
+// Description: SignUp page
+
+import React from 'react'
+
+const SignUp = () => {
   return (
-    <section className="flex-center size-full max-sm:px-6">
-      <AuthForm type="sign-up" />
-    </section>
+    <div>SignUp</div>
   )
 }
 

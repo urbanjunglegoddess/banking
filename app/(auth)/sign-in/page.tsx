@@ -1,9 +1,12 @@
-import AuthForm from '@/components/AuthForm'
+// Author: [Omegea Hunter]
 
+// Date: 2022-11-10
+
+// Description: SignIn page
 const SignIn = () => {
   return (
     <section className="flex-center size-full max-sm:px-6">
-      <AuthForm type="sign-in" />
+    
     </section>
   )
 }

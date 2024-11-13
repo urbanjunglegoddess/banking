@@ -1,4 +1,8 @@
-export const dynamic = 'force-dynamic'
+// Author: [Omegea Hunter]
+
+// Date: 2022-11-10
+
+// Description: Root layout
 
 import type { Metadata } from "next";
 import { Inter, IBM_Plex_Serif } from "next/font/google";
