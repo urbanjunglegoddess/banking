@@ -5,7 +5,7 @@ const Dashboard= () => {
   const loggedIn = {firstName: 'Omegea', lastName: 'Hunter', username: 'UrbanJungleGoddess'};
   
   return (
-    <section className='home'>Dashboard
+    <section className='home'>
 <div className="home-content">
   <header className="home-header">
    <HeaderBox
