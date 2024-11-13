@@ -1,6 +1,7 @@
 import React from 'react'
 import HeaderBox from '@/components/HeaderBox'
 import TotalBalanceBox from '@/components/TotalBalanceBox';
+import RightSideBar from '@/components/RightSideBar';
 const Dashboard= () => {
   const loggedIn = {firstName: 'Omegea', lastName: 'Hunter', username: 'UrbanJungleGoddess'};
   
@@ -24,7 +25,10 @@ const Dashboard= () => {
 
   RECENT TRANSACTIONS
 </div>
-
+<RightSideBar user={loggedIn}
+transactions={[]}
+banks={[]}
+/>
     </section>
   )
 }
