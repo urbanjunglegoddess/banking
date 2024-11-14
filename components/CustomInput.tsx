@@ -8,13 +8,13 @@ import {
     FormMessage,
   } from "@/components/ui/form"
   import { Input } from "@/components/ui/input";
-  import { Control } from "react-hook-form"
+  import { Control, FieldPath } from "react-hook-form"
   import { authFormSchema } from "@/lib/utils"
 
 
 interface CustomeInput{
     control: Control <z.infer<typeof authFormSchema>>;
-    name: "username" | "email" | "password";
+    name: FieldPath<z.infer<typeof authFormSchema>>;
     label: string;
     type: string;
     placeholder: string;
