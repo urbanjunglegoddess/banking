@@ -14,7 +14,7 @@ import {
 
 interface CustomeInput{
     control: Control <z.infer<typeof authFormSchema>>;
-    name: string;
+    name: "username" | "email" | "password";
     label: string;
     type: string;
     placeholder: string;
