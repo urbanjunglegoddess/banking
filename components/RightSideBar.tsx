@@ -39,11 +39,13 @@ const RightSideBar = ({user, transactions, banks}: RightSidebarProps) => {
                     <div className="realtive z-10">
                         BANK CARD 1
                     </div>
+                    {banks[1] && (
                     <div className="absolute right-0 top-8 z-0 w-[90%]">
                         BANK CARD 2
                     </div>
+                    )}
                 </div>
-            )}
+             )}
         </section>
     </aside>
   )
