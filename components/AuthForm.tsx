@@ -98,10 +98,11 @@ const form = useForm<z.infer<typeof authFormSchema>>({
         placeholder="Enter password"
         className="w-full"
         />
-
+<div className='flex flex-col gap-4'> 
         <Button 
         type="submit" 
         className="form-btn"
+        disabled={isLoading}
         >{isLoading ? (
         <>
         <Loader2 size={20}
@@ -109,8 +110,18 @@ const form = useForm<z.infer<typeof authFormSchema>>({
         Loading...
         </>): type==='sign-in' ? 'Sign In' : 'Sign Up'}
         </Button>
+        </div>
       </form>
     </Form>
+    <footer className="flex justfiy-center gap-1">
+        <p className='text-14 font-normal text-gray-600'>
+            {type === 'sign-in' ? 'New to Personal Finance?' : 'Already have an account?'}
+            <Link href={`${type ==='sign-in'?'sign-up':'sign-in'}`} className='form-link'>
+                {type === 'sign-in' ? ' Sign Up' : ' Sign In'}
+                
+            </Link>
+        </p>
+    </footer>
             </>
         )}
     </section>
