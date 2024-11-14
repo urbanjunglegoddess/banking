@@ -5,54 +5,17 @@ import Image from 'next/image'
 import { z } from "zod";
 import { zodResolver } from "@hookform/resolvers/zod"
 import { useForm } from "react-hook-form"
-import {
-    Select,
-    SelectContent,
-    SelectItem,
-    SelectTrigger,
-    SelectValue,
-  } from "@/components/ui/select"  
-import { Label } from "@/components/ui/label"
-import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group"
-import {
-    Popover,
-    PopoverContent,
-    PopoverTrigger,
-  } from "@/components/ui/popover"
-import { Calendar } from "@/components/ui/calendar"
-import { Checkbox } from "@/components/ui/checkbox"
-import { Textarea } from "@/components/ui/textarea"
-import { Switch } from "@/components/ui/switch"
-import { toast } from "@/components/hooks/use-toast"
 import { Button } from "@/components/ui/button"
-import {
-  Form,
-  FormControl,
-  FormDescription,
-  FormField,
-  FormItem,
-  FormLabel,
-  FormMessage,
-} from "@/components/ui/form"
-import { Input } from "@/components/ui/input"console.log('AuthForm component rendered')
-console.log('User:', user)
-console.log('Form type:', type)
-import {
-    Command,
-    CommandDialog,
-    CommandEmpty,
-    CommandGroup,
-    CommandInput,
-    CommandItem,
-    CommandList,
-    CommandSeparator,
-    CommandShortcut,
-  } from "@/components/ui/command"
-  
+import {Form} from '@/components/ui/form'
+import CustomInput from './CustomInput'
+
 
 const formSchema = z.object({
     username: z.string().min(2, {
       message: "Username must be at least 2 characters.",
+    }),
+    email: z.string().email({
+      message: "Please enter a valid email address.",
     }),
   })
   
@@ -64,6 +27,7 @@ const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
     defaultValues: {
       username: "",
+      email: "",
     },
   })
  
@@ -112,35 +76,32 @@ const form = useForm<z.infer<typeof formSchema>>({
 </div>
         ) : (
             <>
-            FORM
+            <Form {...form}>
+      <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-8">
+        <CustomInput 
+        form={form} 
+        name="username" 
+        label="Username" 
+        type="text" 
+        placeholder="Enter username" 
+        className="w-full"
+        />
+        <CustomInput
+        form={form}
+        name="email"
+        label="Email"
+        type="email"
+        placeholder="Enter email"
+        className="w-full"
+        />
+
+        <Button type="submit">Submit</Button>
+      </form>
+    </Form>
             </>
         )}
     </section>
   )
 }
 
-export default AuthForm {
-return (
-    <Form {...form}>
-      <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-8">
-        <FormField
-          control={form.control}
-          name="username"
-          render={({ field }) => (
-            <FormItem>
-              <FormLabel>Username</FormLabel>
-              <FormControl>
-                <Input placeholder="shadcn" {...field} />
-              </FormControl>
-              <FormDescription>
-                This is your public display name.
-              </FormDescription>
-              <FormMessage />
-            </FormItem>
-          )}
-        />
-        <Button type="submit">Submit</Button>
-      </form>
-    </Form>
-  )
-}
+export default AuthForm 
