@@ -11,10 +11,12 @@ import {
   import { Control, FieldPath } from "react-hook-form"
   import { authFormSchema } from "@/lib/utils"
 
+  const formSchema = authFormSchema(type);
+
 
 interface CustomeInput{
-    control: Control <z.infer<typeof authFormSchema>>;
-    name: FieldPath<z.infer<typeof authFormSchema>>;
+    control: Control <z.infer<typeof formSchema>>;
+    name: FieldPath<z.infer<typeof formSchema>>;
     label: string;
     type: string;
     placeholder: string;
