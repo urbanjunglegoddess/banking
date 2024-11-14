@@ -78,6 +78,7 @@ const form = useForm<z.infer<typeof formSchema>>({
       <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-8">
         {type === 'sign-up' && (
             <>
+            <div className="flex gap-4">
             <CustomInput
             control={form.control}
             name='firstName'
@@ -94,6 +95,8 @@ const form = useForm<z.infer<typeof formSchema>>({
             placeholder="Enter last name"
             className=""
             />
+            </div>
+
             <CustomInput 
             control={form.control} 
             name="username" 
@@ -118,6 +121,7 @@ const form = useForm<z.infer<typeof formSchema>>({
             placeholder="Enter city"
             className=""
             /> 
+            <div className="flex gap-4">
             <CustomInput
             control={form.control}
             name="state"
@@ -134,6 +138,7 @@ const form = useForm<z.infer<typeof formSchema>>({
             placeholder="Enter postal code"
             className=""
             />
+            </div>
             <CustomInput
             control={form.control}
             name="dob"

@@ -11,7 +11,7 @@ import {
   import { Control, FieldPath } from "react-hook-form"
   import { authFormSchema } from "@/lib/utils"
 
-  const formSchema = authFormSchema(type);
+  const formSchema = authFormSchema('sign-up');
 
 
 interface CustomeInput{
