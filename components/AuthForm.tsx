@@ -104,21 +104,23 @@ const AuthForm = ({type}: { type: string }) => {
                                     <CustomInput control={form.control} name="ssn" label="SSN" type="integer"
                                                  placeholder="Enter SSN" className="" />
 
-                                    <CustomInput control={form.control} name="email" label="Email" type="email"
+                                </div>
+                                <CustomInput control={form.control} name="email" label="Email" type="email"
                                                  placeholder="Enter email" className="w-full" />
                                     <CustomInput control={form.control} name="password" label="Password" type="password"
                                                  placeholder="Enter password" className="w-full" />
                                 </>
-                                )}}
+                            )}
+                            {type === 'sign-in' && (
+                              <>
                                 <CustomInput control={form.control} name="username" label="Username" type="text"
-                                             placeholder="Enter username" className="w-full"
-                                />
+                                             placeholder="Enter username" className="w-full" />
                                 <CustomInput control={form.control} name="email" label="Email" type="email"
-                                             placeholder="Enter email" className="w-full"
-                                />
+                                             placeholder="Enter email" className="w-full" />
                                 <CustomInput control={form.control} name="password" label="Password" type="password"
-                                             placeholder="Enter password" className="w-full"
-                                />
+                                             placeholder="Enter password" className="w-full" />
+                                </>
+                            )}
                                 <div className='flex flex-col gap-4'>
                                     <Button
                                         type="submit"
@@ -143,9 +145,10 @@ const AuthForm = ({type}: { type: string }) => {
                             </Link>
                         </p>
                     </footer>
+                    </Form>
+                    
                 </>
-
-                )}
+            )}
         </section>
     )
 }
