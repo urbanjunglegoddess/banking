@@ -3,12 +3,13 @@
 // Date: 2022-11-10
 
 // Description: SignUp page
-
 import React from 'react'
-
+import AuthForm from '@/components/AuthForm'
 const SignUp = () => {
   return (
-    <div>SignUp</div>
+    <section className="flex-center size-full max-sm:px-6">
+      <AuthForm type="sign-up"/>
+    </section>
   )
 }
 
