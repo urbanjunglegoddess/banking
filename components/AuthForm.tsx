@@ -102,13 +102,12 @@ const form = useForm<z.infer<typeof authFormSchema>>({
             />
             <CustomInput
             control={form.control}
-            name='address'
+            name='address1'
             label="Address"
             type="text"
             placeholder="Enter your specific address"
             className=""
             />
-
             <CustomInput
             control={form.control}
             name="city"
