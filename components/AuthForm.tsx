@@ -8,23 +8,14 @@ import { useForm } from "react-hook-form"
 import { Button } from "@/components/ui/button"
 import {Form} from '@/components/ui/form'
 import CustomInput from './CustomInput'
-
-
-const formSchema = z.object({
-    username: z.string().min(2, {
-      message: "Username must be at least 2 characters.",
-    }),
-    email: z.string().email({
-      message: "Please enter a valid email address.",
-    }),
-  })
+import { authFormSchema } from '@/lib/utils'
   
 const AuthForm = ({ type }: { type: string }) => {
     const [user, setUser] = useState(null)
 
 // 1. Define your form.
-const form = useForm<z.infer<typeof formSchema>>({
-    resolver: zodResolver(formSchema),
+const form = useForm<z.infer<typeof authFormSchema>>({
+    resolver: zodResolver(authFormSchema),
     defaultValues: {
       username: "",
       email: "",
@@ -32,7 +23,7 @@ const form = useForm<z.infer<typeof formSchema>>({
   })
  
   // 2. Define a submit handler.
-  function onSubmit(values: z.infer<typeof formSchema>) {
+  function onSubmit(values: z.infer<typeof authFormSchema>) {
     // Do something with the form values.
     // ✅ This will be type-safe and validated.
     console.log(values)
@@ -79,7 +70,7 @@ const form = useForm<z.infer<typeof formSchema>>({
             <Form {...form}>
       <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-8">
         <CustomInput 
-        form={form} 
+        control={form.control} 
         name="username" 
         label="Username" 
         type="text" 
@@ -87,11 +78,19 @@ const form = useForm<z.infer<typeof formSchema>>({
         className="w-full"
         />
         <CustomInput
-        form={form}
+        control={form.control} 
         name="email"
         label="Email"
         type="email"
         placeholder="Enter email"
+        className="w-full"
+        />
+        <CustomInput
+        control={form.control} 
+        name="password"
+        label="Password"
+        type="password"
+        placeholder="Enter password"
         className="w-full"
         />
 
