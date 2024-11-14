@@ -74,6 +74,99 @@ const form = useForm<z.infer<typeof authFormSchema>>({
             <>
             <Form {...form}>
       <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-8">
+        {type === 'sign-up' && (
+            <>
+            <CustomInput
+            control={form.control}
+            name='firstName'
+            label="First Name"
+            type="text"
+            placeholder="Enter first name"
+            className=""
+            />
+            <CustomInput
+            control={form.control}
+            name="lastName"
+            label="Last Name"
+            type="text"
+            placeholder="Enter last name"
+            className=""
+            />
+            <CustomInput 
+            control={form.control} 
+            name="username" 
+            label="Username" 
+            type="text" 
+            placeholder="Enter username" 
+            className="w-full"
+            />
+            <CustomInput
+            control={form.control}
+            name='address'
+            label="Address"
+            type="text"
+            placeholder="Enter your specific address"
+            className=""
+            />
+
+            <CustomInput
+            control={form.control}
+            name="city"
+            label="City"
+            type="text"
+            placeholder="Enter city"
+            className=""
+            /> 
+            <CustomInput
+            control={form.control}
+            name="state"
+            label="State"
+            type="text"
+            placeholder="Enter state"
+            className=""
+            />
+            <CustomInput
+            control={form.control}
+            name="postalCode"
+            label="Postal Code"
+            type="text"
+            placeholder="Enter postal code"
+            className=""
+            />
+            <CustomInput
+            control={form.control}
+            name="dob"
+            label="Date of Birth"
+            type="date"
+            placeholder="Enter date of birth"
+            className=""
+            />
+            <CustomInput
+            control={form.control}
+            name="ssn"
+            label="SSN"
+            type="integer"
+            placeholder="Enter SSN"
+            className=""
+            />
+            <CustomInput
+            control={form.control} 
+            name="email"
+            label="Email"
+            type="email"
+            placeholder="Enter email"
+            className="w-full"
+            />
+            <CustomInput
+            control={form.control} 
+            name="password"
+            label="Password"
+            type="password"
+            placeholder="Enter password"
+            className="w-full"
+                />
+            </>
+        )}
         <CustomInput 
         control={form.control} 
         name="username" 
