@@ -25,9 +25,10 @@ const Dashboard= () => {
 
   RECENT TRANSACTIONS
 </div>
-<RightSideBar user={loggedIn}
+<RightSideBar 
+user={loggedIn}
 transactions={[]}
-banks={[]}
+banks={[{},{}]}
 />
     </section>
   )
