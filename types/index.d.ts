@@ -297,6 +297,7 @@ declare interface getTransactionsByBankIdProps {
 declare interface signInProps {
   email: string;
   password: string;
+  username: string;
 }
 
 declare interface getUserInfoProps {
