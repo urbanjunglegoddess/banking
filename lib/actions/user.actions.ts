@@ -8,18 +8,9 @@ import { parseStringify } from "../utils";
 export const signIn = async ({ email, password }: signInProps) => {
   try {
     const { account } = await createAdminClient();
-    const session = await account.createEmailPasswordSession(email, password);
+    const response = await account.createEmailPasswordSession(email, password);
 
-    cookies().set("appwrite-session", session.secret, {
-      path: "/",
-      httpOnly: true,
-      sameSite: "strict",
-      secure: true,
-    });
-
-    const user = await getUserInfo({ userId: session.userId }) 
-
-    return parseStringify(user);
+    return parseStringify(response);
   } catch (error) {
     console.error('Error', error);
   }
@@ -57,7 +48,6 @@ export const signUp = async (userData : SignUpParams) => {
   }
 }
 
-// ... your initilization functions
 
 export async function getLoggedInUser() {
     try {
